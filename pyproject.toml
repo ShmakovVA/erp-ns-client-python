@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "erp-ns-client-python"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Vadim Shmakov <v@shmakov.me>"]
 
