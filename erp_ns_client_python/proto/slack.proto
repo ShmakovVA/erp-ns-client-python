@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package erp.ns;
+
+message SlackMessage {
+    string channel = 1;
+    string text = 2;
+    string message_ts = 3;
+    SlackMessageParameters message_parameters = 4;
+}
+
+message SlackMessageParameters {
+    string username = 1;
+    bool as_user = 2;
+    string parse = 3;
+    string thread_timestamp = 4;
+    bool reply_broadcast = 5;
+    int32 link_names = 6;
+    repeated SlackAttachment attachments = 7;
+    bool unfurl_links = 8;
+    bool unfurl_media = 9;
+    string icon_url = 10;
+    string icon_emoji = 11;
+    bool markdown = 12;
+    bool escape_text = 13;
+    string user = 14;
+}
+
+message SlackAttachment {
+    string color = 1;
+    string fallback = 2;
+    string callback_id = 3;
+    int64 id = 4;
+    string author_id = 5;
+    string author_name = 6;
+    string author_subname = 7;
+    string author_link = 8;
+    string author_icon = 9;
+    string title = 10;
+    string title_link = 11;
+    string pretext = 12;
+    string text = 13;
+    string image_url = 14;
+    string thumb_url = 15;
+    repeated SlackAttachmentField fields = 16;
+    repeated SlackAttachmentAction actions = 17;
+    repeated string markdown_in = 18;
+    string footer = 19;
+    string footer_icon = 20;
+    string ts = 21;
+}
+
+message SlackAttachmentField {
+    string title = 1;
+    string value = 2;
+    bool short = 3;
+}
+
+message SlackAttachmentAction {
+    string name = 1; // Required.
+    string text = 2; // Required.
+    string style = 3; // Optional. Allowed values: "default", "primary", "danger".
+    string type = 4; // Required. Must be set to "button" or "select".
+    string value = 5; // Optional.
+    string data_source = 6; // Optional.
+    int32 min_query_length = 7; // Optional. Default value is 1.
+    repeated SlackAttachmentActionOption options = 8; // Optional. Maximum of 100 options can be provided in each menu.
+    repeated SlackAttachmentActionOption selected_options = 9; // Optional. The first element of this array will be set as the pre-selected option for this menu.
+    repeated SlackAttachmentActionOptionGroup option_groups = 10; // Optional.
+    SlackConfirmationField confirm = 11; // Optional.
+    string url = 12; // Optional.
+}
+
+message SlackAttachmentActionOptionGroup {
+    string text = 1; // Required.
+    repeated SlackAttachmentActionOption options = 2; // Required.
+}
+
+message SlackAttachmentActionOption {
+    string text = 1; // Required.
+    string value = 2; // Required.
+    string description = 3; // Optional. Up to 30 characters.
+}
+
+message SlackConfirmationField {
+    string title = 1; // Optional.
+    string text = 2; // Required.
+    string ok_text = 3; // Optional. Defaults to "Okay"
+    string dismiss_text = 4; // Optional. Defaults to "Cancel"
+}

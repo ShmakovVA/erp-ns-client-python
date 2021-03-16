@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "erp-ns-client-python"
+version = "0.1.0"
+description = ""
+authors = ["Vadim Shmakov <v@shmakov.me>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pika = "^1.2.0"
+protobuf = "^3.15.6"
+pydantic = "^1.8.1"
+urllib3 = "^1.26.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

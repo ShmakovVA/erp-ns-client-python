@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package erp.ns;
+
+message EmailMessage {
+    string subject = 1;
+    string to = 2;
+    string from = 3;
+    string cc = 4;
+    string bcc = 5;
+    string reply_to = 6;
+    string text = 7;
+    string html = 8;
+}
